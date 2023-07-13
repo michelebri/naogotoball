@@ -1,5 +1,1 @@
 ball
-robot
-centerspot
-goalspot
-goalpost
