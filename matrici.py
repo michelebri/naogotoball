@@ -147,23 +147,23 @@ while ret:
     center = (center_x,center_y)
     cv2.circle(im, center, 1, (255, 0, 255), 3)
 
-    cv2.imshow("am",im)
+    cv2.imshow("test",im)
     cv2.waitKey(1000)
 
 
-    y = (lunghezza_quadrato * (quadrant_y-1)) + 30 #30 centimetri sono la distanza tra i piedi del robot e il primo punto osservato quando ha la testa dritta
+    y = (lunghezza_quadrato * (num_quadrants_y-quadrant_y)) + 30 #30 centimetri sono la distanza tra i piedi del robot e il primo punto osservato quando ha la testa dritta
     x = matriceConcatenata[quadrant_y-1][quadrant_x-1]
     #print(matriceRobot.shape)
-    print("movimento lungo x e y:", str(y), " ", str(x))
+    print("movimento lungo x e y:", str(x), " ",str(y))
 
-    key = str(quadrant_x)+str(quadrant_y)
+    key = str(quadrant_y)+str(quadrant_x)
     print(key)
     if key not in dict:
         dict[key] = 1
     else:
         dict[key] +=1
 
-    #cerchiamo il quadrante in cui la palla viene individuata più volte e poi ci muoviamo verso di quello
+    #cerchiamo il quadrante in cui la palla viene individuata più volte e poi ci muoviamo verso quello
     for key in dict:
         if dict[key] > 10:
             print("mi muovo verso il quadrante ", key)
