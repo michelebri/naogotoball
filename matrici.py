@@ -11,7 +11,7 @@ def scambia_righe(matrice):
     n_righe = len(matrice)
     n_colonne = len(matrice[0])
     matriceNuova = np.zeros((n_righe, n_colonne))
-    #creaiamo una nuova matrice a partire da quella passata in input che ha la riga 1 al posto della riga "n_righe"
+    #creaiamo una nuova matrice a partire da quella passata in input che inverte la riga 1 con la riga "n_righe, la riga due scambiata con la riga n_righe-1 e così via"
     for i in range(n_righe):
         matriceNuova[i] = matrice[n_righe - 1 - i]
     return matriceNuova
@@ -19,7 +19,7 @@ def scambia_righe(matrice):
 def creaMatriceNegativaRibaltata(matrice):
     matriceNuova = -matrice
     matriceFinale=np.zeros((righe, colonne))
-    ##creiamo una nuova matrice che ha i coefficienti tutti negativi e la colonna 1 al posto della  colonna "colonne"
+    #creiamo una nuova matrice che ha i coefficienti tutti negativi e la colonna 1 al posto della  colonna "colonne"
     for j in range(colonne):
         matriceFinale[:,j] = matriceNuova[:,colonne - 1 - j]
     return matriceFinale
@@ -161,7 +161,7 @@ while ret:
     if key not in dict:
         dict[key] = 1
     else:
-        dict[key] +=1
+        dict[key] += 1
 
     #cerchiamo il quadrante in cui la palla viene individuata più volte e poi ci muoviamo verso quello
     for key in dict:
