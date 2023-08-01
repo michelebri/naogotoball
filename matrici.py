@@ -166,7 +166,7 @@ while ret:
     #cerchiamo il quadrante in cui la palla viene individuata più volte e poi ci muoviamo verso quello
     for key in dict:
         if dict[key] > 10:
-            print("mi muovo verso il quadrante ", key)
+            print("movimento lungo x e y:", str(x), " ",str(y))
     ''' scommentare per ottenere il movimento effettivo del robot
             Theta = math.pi/2.0 
             motionProxy.post.moveTo(x, y, Theta) 
