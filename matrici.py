@@ -167,6 +167,8 @@ while ret:
     for key in dict:
         if dict[key] > 10:
             print("movimento lungo x e y:", str(x), " ",str(y))
+            #utile solo a scopo di debug, visto che nel caso d'uso considerato la palla rimane ferma e il robot le va incontro
+            #mentre nel video di prova per analizzare più posizioni contemporaneamente la palla si muove
     ''' scommentare per ottenere il movimento effettivo del robot
             Theta = math.pi/2.0 
             motionProxy.post.moveTo(x, y, Theta) 
