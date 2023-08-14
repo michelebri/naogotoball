@@ -8,7 +8,7 @@ una volta ottenute queste misure, posto che il robot a 	questo punto è già in 
  
 COME AVVIARE IL PROGRAMMA PER UTILIZZARLO CON UN VIDEO DI TEST(senza l'utilizzo diretto di un robot NAO)
 Nella repository sono presenti alcuni video di test(pallafissa.avi e palla.avi) che sono i video utilizzati per effettusare le prime prove; al file palla.avi nello specifico è stata applicata una griglia di dimensioni 8x8 per rendere più riconoscibile il settore in cui si trova la palla quando si fanno i test, il video ottenuto si chiama palla_with_lines.avi; con questo video di test il risultato è buono, tuttavia più spesse sono le linee, più difficile diventa il riconoscimento della palla, quando questa passa da un settore all'altro; questo però non ci deve spaventare per 2 motivi:
- -le  linee sono create a posteriori con lo script disegna_righe_e_colonne, quindi servono solo a scopo di test e non inficiano la visione del robot
+ -le  linee sono create a posteriori con lo script disegna_righe_e_colonne.py, quindi servono solo a scopo di test e non inficiano la visione del robot
  -la palla si muove in questo video solo per analizzare il riconoscimento del quadrante giusto in varie sitazioni, tuttavia nel caso reale la palla viene posta fissa in una posizione e il robot la raggiunge dopo averla riconosciuta
 Il file matrici.py è già impostato per funzionare con il video palla_with_lines, quindi se si vuole provare il riconoscimento dei settori e il calcolo delle distanze, bisogna solo eseguirlo.
 
