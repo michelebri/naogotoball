@@ -1,0 +1,20 @@
+COME FUNZIONA IL PROGRAMMA AD ALTO LIVELLO
+Il task da svolgere prevedeva di fare in modo che il robot, posto in un ambiente controllato, per esempio in una stanza, fosse in grado di riconoscere una palla posta nel suo campo visivo, e una volta identificata quest'ultima, che fosse in grado di avvicinarsi alla suddetta palla.
+
+Abbiamo provato due strategie diverse:
+-La prima si basa sulla possibilità di calcolare la distanza tra robot e palla calcolando la larghezza focale della camera del robot; lo script contenente il codice di questo approccio è in detect.py; tuttavia questo primo metodo si è rivelato efficace nel calcolare la distanza effettiva solo se la palla si trova a una distanza intermedia dal robot (all'incirca tra i 50-70 cm), con dei risultati abbastanza inconcludenti per distanze al di fuori di questo range.
+-La seconda, che è quella che ha restituito risultati migliori, si basa su una matrice di coefficienti che viene creata in base al campo visivo del robot; nello specifico abbiamo fissato l'angolo tra il pavimento e la camera superiore del robot a +8°, abbiamo delimitato la zona che la camera riusciva a coprire(che è un trapezio) e abbiamo calcolato le sue dimensioni( il trapezio ha una base inferiore di 40cm, una base inferiore di 90cm e un altezza di 90 cm);
+una volta ottenute queste misure, posto che il robot a 	questo punto è già in grado di riconoscere con precisione la palla, grazie alla rete addestrata sempre da noi in precedenza, basta calcolare una matrice delle distanze con il centro di ogni settore e mappare questa matrice sull'immagine registrata dal robot(nel nostro caso 320px x 320px). Si divide quindi l'immagine in tanti settori(nel nostro esempio sono 64 settori e quindi una matrice 8x8 di dimensione 40px x 40px, ma comunque modificabili tramite parametri del codice) e il robot riconosce la palla, ci dice in che settore si trova e infine grazie alla matrice di coefficienti, il robot sa di quanto si deve spostare lungo x e lungo y per raggiungere quel settore.
+ 
+COME AVVIARE IL PROGRAMMA PER UTILIZZARLO CON UN VIDEO DI TEST(senza l'utilizzo diretto di un robot NAO)
+Nella repository sono presenti alcuni video di test(pallafissa.avi e palla.avi) che sono i video utilizzati per effettusare le prime prove; al file palla.avi nello specifico è stata applicata una griglia di dimensioni 8x8 per rendere più riconoscibile il settore in cui si trova la palla quando si fanno i test, il video ottenuto si chiama palla_with_lines.avi; con questo video di test il risultato è buono, tuttavia più spesse sono le linee, più difficile diventa il riconoscimento della palla, quando questa passa da un settore all'altro; questo però non ci deve spaventare per 2 motivi:
+ -le  linee sono create a posteriori con lo script disegna_righe_e_colonne, quindi servono solo a scopo di test e non inficiano la visione del robot
+ -la palla si muove in questo video solo per analizzare il riconoscimento del quadrante giusto in varie sitazioni, tuttavia nel caso reale la palla viene posta fissa in una posizione e il robot la raggiunge dopo averla riconosciuta
+Il file matrici.py è già impostato per funzionare con il video palla_with_lines, quindi se si vuole provare il riconoscimento dei settori e il calcolo delle distanze, bisogna solo eseguirlo.
+
+La spiegazione dettagliata del funzionamento del codice è disponibile nel file spiegazione.ipynb
+
+Vado ora a spiegare il procedimento che mi ha portato a scrivere il codice matrici.py
+-Sapendo che il trapezio descritto ha una dimensione di 90cm per la base superiore e 40cm per quella inferiore, ho immaginato di ridurre il problema tagliandolo a metà nella direzione dell'altezza, calcolando solo metà dei coefficienti, per poi ottenere l'altra metà per simmetria, cambiandogli il segno. 
+La y (ovvero l'altezza del trapezio, anch'essa di 90cm) è stata divisa in 8, ottenendo quindi tanti segmenti di 11.25cm
+Per il calcolo della x, poiché questa varia man mano che ci si allontana dal sensore, ho calcolato la retta passante per due punti ((x-x1)/(x2-x1))=((y-y1)/(y2-y1)) rispettivamente con x1=20, y1=0, x2=45, y2=90
