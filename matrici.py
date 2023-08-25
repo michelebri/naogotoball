@@ -50,8 +50,8 @@ numero_elementi = 8 #ho deciso di dividere l'immagine in una matrice 8x8
 
 
 #ho ristretto il problema al solo lato sinistro, poiché il destro può essere ricavato per simmetria in seguito
-righe = 8
-colonne = 4
+righe = numero_elementi
+colonne = numero_elementi/2
 lunghezza = []
 larghezza = []
 lunghezza_quadrato = distanza_verticale / numero_elementi  
@@ -76,11 +76,6 @@ matriceConcatenata = np.concatenate((matriceNegativa,matriceLarghezze), axis=1)
 print("visualizzazione matrice comoda per noi")
 print(matriceConcatenata)
 print()
-#print("visualizzazione matrice realmente utilizzata")
-#matriceRobot = scambia_righe(matriceConcatenata)
-#print(matriceRobot)
-#print(matriceRobot[0][0])
-#print(matriceRobot[7][7])
 
 
 #divido l'immagine di 320px x 320px in 64 quadrati di 40px x 40px
@@ -148,6 +143,7 @@ while ret:
     cv2.circle(im, center, 1, (255, 0, 255), 3)
 
     cv2.imshow("test",im)
+    #commentare il rigo di sotto per non dover aspettare un secondo tra un acquisizione e la successiva
     cv2.waitKey(1000)
 
 

@@ -1,5 +1,5 @@
 COME FUNZIONA IL PROGRAMMA AD ALTO LIVELLO
-Il task da svolgere prevedeva di fare in modo che il robot, posto in un ambiente controllato, per esempio in una stanza, fosse in grado di riconoscere una palla posta nel suo campo visivo, e una volta identificata quest'ultima, che fosse in grado di avvicinarsi alla suddetta palla.
+Il task da svolgere prevedeva di fare in modo che il robot, posto in un ambiente controllato, per esempio in una stanza, fosse in grado di riconoscere una palla all'interno del suo campo visivo, e una volta identificata, che fosse in grado di avvicinarsi alla suddetta palla.
 
 Abbiamo provato due strategie diverse:
 -La prima si basa sulla possibilità di calcolare la distanza tra robot e palla calcolando la larghezza focale della camera del robot; lo script contenente il codice di questo approccio è in detect.py; tuttavia questo primo metodo si è rivelato efficace nel calcolare la distanza effettiva solo se la palla si trova a una distanza intermedia dal robot (all'incirca tra i 50-70 cm), con dei risultati abbastanza inconcludenti per distanze al di fuori di questo range.
@@ -12,4 +12,4 @@ Nella repository sono presenti alcuni video di test(pallafissa.avi e palla.avi) 
  -la palla si muove in questo video solo per analizzare il riconoscimento del quadrante giusto in varie sitazioni, tuttavia nel caso reale la palla viene posta fissa in una posizione e il robot la raggiunge dopo averla riconosciuta
 Il file matrici.py è già impostato per funzionare con il video palla_with_lines, quindi se si vuole provare il riconoscimento dei settori e il calcolo delle distanze, bisogna solo eseguirlo.
 
-La spiegazione dettagliata del funzionamento del codice è disponibile nel file spiegazione.ipynb
+La spiegazione dettagliata del funzionamento del secondo metodo (matrici.py) è disponibile nel file spiegazione secondo metodo.ipynb
