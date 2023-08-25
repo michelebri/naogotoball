@@ -13,8 +13,3 @@ Nella repository sono presenti alcuni video di test(pallafissa.avi e palla.avi) 
 Il file matrici.py è già impostato per funzionare con il video palla_with_lines, quindi se si vuole provare il riconoscimento dei settori e il calcolo delle distanze, bisogna solo eseguirlo.
 
 La spiegazione dettagliata del funzionamento del codice è disponibile nel file spiegazione.ipynb
-
-Vado ora a spiegare il procedimento che mi ha portato a scrivere il codice matrici.py
--Sapendo che il trapezio descritto ha una dimensione di 90cm per la base superiore e 40cm per quella inferiore, ho immaginato di ridurre il problema tagliandolo a metà nella direzione dell'altezza, calcolando solo metà dei coefficienti, per poi ottenere l'altra metà per simmetria, cambiandogli il segno. 
-La y (ovvero l'altezza del trapezio, anch'essa di 90cm) è stata divisa in 8, ottenendo quindi tanti segmenti di 11.25cm
-Per il calcolo della x, poiché questa varia man mano che ci si allontana dal sensore, ho calcolato la retta passante per due punti ((x-x1)/(x2-x1))=((y-y1)/(y2-y1)) rispettivamente con x1=20, y1=0, x2=45, y2=90
