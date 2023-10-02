@@ -69,7 +69,7 @@
                     <div class="section-inner">
                         <h2 class="heading">Motivazioni</h2>
                         <div class="content">
-                            <p>Trattandosi di robot utilizzati all'interno della ROBOCUP, il riconoscimento della palla e il conseguente movimento verso di essa è la base da cui partire per creare delle strategie di movimento dei vari robot in campo che siamo efficaci
+                            <p>Trattandosi di robot utilizzati all'interno della ROBOCUP, il riconoscimento della palla e il conseguente movimento verso di essa è la base da cui partire per creare delle strategie di movimento dei vari robot in campo che siamo efficaci.
 
                         </div><!--//content-->
                     </div><!--//section-inner-->                 
@@ -82,12 +82,11 @@
                             <p>Gli obbiettivi sono stati:
                               <ul>
                                 <li>effettuare il labeling di una gran quantità di immagini</li>
-                                                <li>addestrare un detector in modo che riconoscesse la palla</li>
+                                <li>addestrare un detector in modo che riconoscesse la palla</li>
                                 <li>trovare il modo più efficace per far raggiungere al robot la palla</li>
-                                                <li>testare l'approccio utilizzato</li>
-                                            </ul>
-                                          </p>
-                                                     
+                                <li>testare l'approccio utilizzato</li>
+                              </ul>
+                            </p>                           
                         </div><!--//content-->
                     </div><!--//section-inner-->                 
                 </section><!--//section-->
@@ -99,9 +98,9 @@
                             <p>Sono stati provati due approcci differenti:</p>
                               <ul>
                                 <li>il primo si è basato sulla stima della distanza dell'oggetto in base alla larghezza focale della camera del robot</li>
-                                <li>il secondo si è basato sulla suddivisione dell' immagine registrata dal robot in settori più piccoli, dopo di che siamo passati a riconoscere in quale settore la palla fosse per trovarne il centro e in base alla posizione di quest'ultimo ricavare la distanza con una matrice di coefficienti che tiene conto del campo visivo del robot. Questo secondo approccio è descritto nel dettaglio, grazie anche all'utilizzo di discegni, nella cartella template-progetto-Vep, disponibile nella repository GitHub linkata sotto</li>                      
+                                <li>il secondo si è basato sulla suddivisione dell' immagine registrata dal robot in settori più piccoli, dopo di che siamo passati a riconoscere in quale settore la palla fosse per trovarne il centro e in base alla posizione di quest'ultimo ricavare la distanza con una matrice di coefficienti che tiene conto del campo visivo del robot</li>                      
                               </ul>
-                            </p>                                             
+                                        </p>                                             
                         </div><!--//content-->
                     </div><!--//section-inner-->                 
                 </section><!--//section-->
@@ -132,7 +131,7 @@
                     <div class="section-inner">
                         <h2 class="heading"><a id="dataset"></a>Dataset</h2>
                         <div class="content">
-                            <p>Le prime 1500 immagini etichettate sono state prese dalla partita tra SPQR e NAO Devils; tuttavia all'atto pratico, essendo in gran parte sfocate e con una visuale sulla palla non ottimale, l'addestramento della rete con queste immagini è eisultato inutile poiché la palla non veniva riconosciuta dal robot nei nostri test; abbiamo quindi creato un altro dataset di  immagini a partire da un video registrato dal robot nel laboratorio e abbiamo utilizzato quelle per l'addestramento.                             
+                            <p>Le prime 1500 immagini etichettate sono state prese dalla partita tra SPQR e NAO Devils; tuttavia all'atto pratico, essendo in gran parte sfocate e con una visuale sulla palla non ottimale, l'addestramento della rete con queste immagini è eisultato inutile poiché la palla non veniva riconosciuta dal robot nei nostri test; abbiamo quindi creato un altro dataset di 700 immagini a partire da un video registrato dal robot nel laboratorio e abbiamo utilizzato quelle per l'addestramento.                             
                         </div><!--//content-->
                         <p><a href="https://drive.google.com/drive/folders/1_ri-K5FnMlkMTCQX0cRG9DGbYj33JbTn?usp=sharing"
                 target="_blank">
@@ -148,18 +147,30 @@
                                                         
                                 
                             <h3>Risultati qualitativi</h3>
-                            <p>Fornire esempi di applicazione del metodo con immagini e video</p>
+                            <p><a href="https://drive.google.com/drive/folders/1NuUw8CdSm-D3WONYoiAnBQkWofRcBeGv?usp=sharing"target="_blank"> Link per i risultati video</a>
+
                             
                                                     
                             <h3>Risultati quantitativi</h3>
-                            <p>Fornire una descrizione delle performance del metodo usando
-                            delle opportune metriche</p>
-                            
-                            <p>Per esempio:<br>
-                            Fornire su un numero di immagini non inferiore a 30 i dati relativi
-                            a FP, FN, TP.                           
-                            </p>
-                            
+                            <p>Ecco alcune immagini che ci permettono di capire come funziona il procedimento<p>
+                            <div class="gallery">
+                                   <figure><img src="VeP-progetto_files\Screenshot 2023-10-02 172658.png"> <figcaption>  
+          <p>Questo è quello che vede il robot.</p>  
+     </figcaption></figure>
+                                   <figure><img src="VeP-progetto_files\Screenshot 2023-10-02 172738.png"> <figcaption>  
+          <p>Questo è quello che dobbiamo immaginare accada.</p>  
+     </figcaption></figure>
+                                   <figure><img src="VeP-progetto_files\Screenshot 2023-10-02 172929.png"> <figcaption>  
+          <p>Questo è quello che vede il robot.</p>  
+     </figcaption></figure>
+                                   <figure><img src="VeP-progetto_files\Screenshot 2023-10-02 172840.png"> <figcaption>  
+          <p>Questo è quello che dobbiamo immaginare accada.</p>  
+     </figcaption></figure>
+                                </div>                 
+                            <p>Una volta trovato il quadrante in cui si trova il centro della palla, il robot si muoverà dopo aver calcolato la distanza da percorrere lungo x e lungo y<p>
+
+                            <p>Questo secondo metodo si è dimostrato molto efficiente; con le impostazioni attuali il robot raggiunge la posizione esatta della palla, dando l'impressione di starla calciando, che può risultare divertente qualora l'obbiettivo sia quello 
+                            di far funzionare il robot davanti a dei bambini, a patto che la palla, prima di avviare il processo, si trovi nel campo visivo del robot; nulla vieta tuttavia di modificare leggermente i parametri finali di x e y che regolano il movimento sottraendo pochi centimetri per fare in modo che il robot si fermi poco prima e non tocchi la palla.</p>
                             
                             
                         </div><!--//content-->

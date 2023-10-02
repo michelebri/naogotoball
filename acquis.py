@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 import time
 import math
-import tensorflow as tf
+#import tensorflow as tf
 from naoqi import ALProxy
 
 
@@ -26,11 +26,12 @@ def creaMatriceNegativaRibaltata(matrice):
         matriceFinale[:,j] = matriceNuova[:,int(colonne) - 1 - j]
     return matriceFinale
 
-from tensorflow.lite.python.interpreter import Interpreter
-with open("model/labels.txt", 'r') as f:
-  labels = [line.strip() for line in f.readlines()]
-interpreter = Interpreter(model_path="model/detect.tflite")
-interpreter.allocate_tensors() 
+
+#from tensorflow.lite.python.interpreter import Interpreter
+#with open("model/labels.txt", 'r') as f:
+##  labels = [line.strip() for line in f.readlines()]
+##interpreter = Interpreter(model_path="model/detect.tflite")
+#interpreter.allocate_tensors() 
 
 context = zmq.Context()
 socket = context.socket(zmq.REP)
@@ -176,10 +177,6 @@ while ret:
     quadrant_y = (center_y // quadrant_size)+1
     print("quadrante x e y: ",str(quadrant_y) , " ",str(quadrant_x))
 
-    
-
-
-
     print("")
     center = (center_x,center_y)
     cv2.circle(im, center, 1, (255, 0, 255), 3)
@@ -207,12 +204,12 @@ while ret:
             print("movimento lungo x e y:", str(x), " ",str(y))
             #utile solo a scopo di debug, visto che nel caso d'uso considerato la palla rimane ferma e il robot le va incontro
             #mentre nel video di prova per analizzare più posizioni contemporaneamente la palla si muove
-    ''' scommentare per ottenere il movimento effettivo del robot
+            # commentare e scommentare per ottenere il movimento effettivo del robot
             Theta = math.pi/2.0 
             motionProxy.post.moveTo(x, y, Theta) 
             # wait is useful because with post moveTo is not blocking function 
             motionProxy.waitUntilMoveIsFinished()    
-    '''
+    
     
   ret,frame = cap.read()
 
