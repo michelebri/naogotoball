@@ -12,4 +12,4 @@ Nella repository sono presenti alcuni video di test(pallafissa.avi e palla.avi) 
  -la palla si muove in questo video solo per analizzare il riconoscimento del quadrante giusto in varie sitazioni, tuttavia nel caso reale la palla viene posta fissa in una posizione e il robot la raggiunge dopo averla riconosciuta
 Il file matrici.py è già impostato per funzionare con il video palla_with_lines, quindi se si vuole provare il riconoscimento dei settori e il calcolo delle distanze, bisogna solo eseguirlo.
 
-La spiegazione dettagliata del funzionamento del secondo metodo (matrici.py) è disponibile nel file spiegazione secondo metodo.ipynb
+La spiegazione dettagliata del funzionamento del secondo metodo (acquis.py) è disponibile nel file spiegazione secondo metodo.ipynb
